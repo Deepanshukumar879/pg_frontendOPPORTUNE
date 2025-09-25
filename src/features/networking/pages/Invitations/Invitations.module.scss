@@ -1,0 +1,361 @@
+.invitationsContainer {
+  background: #f9fafb;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.headerSection {
+  max-width: 1200px;
+  margin: 0 auto 32px;
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.titleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.iconBadge {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(249, 115, 22, 0.25);
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 24px rgba(249, 115, 22, 0.35);
+  }
+}
+
+.tabsContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.tabsWrapper {
+  display: flex;
+  background: #f3f4f6;
+  padding: 6px;
+  border-radius: 16px;
+  gap: 4px;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: transparent;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Roboto", sans-serif;
+  position: relative;
+  
+  &:hover:not(.active) {
+    color: #374151;
+    background: rgba(255, 255, 255, 0.5);
+  }
+  
+  &.active {
+    background: #ffffff;
+    color: #111827;
+    box-shadow: 
+      0 2px 8px rgba(0, 0, 0, 0.1),
+      0 0 0 1px rgba(0, 0, 0, 0.02);
+    
+    svg {
+      color: #2563eb;
+    }
+  }
+  
+  svg {
+    transition: color 0.3s ease;
+  }
+}
+
+.tabBadge {
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 6px;
+  min-width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  .tab.active & {
+    background: #16a34a;
+  }
+}
+
+.mainContent {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.emptyState {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 64px 48px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #2563eb 0%, #16a34a 50%, #f97316 100%);
+    border-radius: 20px 20px 0 0;
+  }
+}
+
+.emptyIcon {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  margin: 0 auto 24px;
+  border: 3px solid #e5e7eb;
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.emptyTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 12px 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Roboto", sans-serif;
+}
+
+.emptyDescription {
+  font-size: 16px;
+  color: #6b7280;
+  margin: 0 0 32px 0;
+  line-height: 1.6;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Roboto", sans-serif;
+}
+
+.exploreButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Roboto", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.25);
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(37, 99, 235, 0.35);
+  }
+}
+
+.invitationsList {
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.listHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 32px;
+  border-bottom: 1px solid #f3f4f6;
+  background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+}
+
+.listTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Roboto", sans-serif;
+}
+
+.listCount {
+  font-size: 14px;
+  color: #6b7280;
+  font-weight: 500;
+  background: #f3f4f6;
+  padding: 6px 12px;
+  border-radius: 50px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Roboto", sans-serif;
+}
+
+.connectionsGrid {
+  padding: 24px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.connectionWrapper {
+  animation: slideInUp 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  animation-delay: calc(0.1s * var(--index));
+  opacity: 0;
+}
+
+@keyframes slideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .invitationsContainer {
+    padding: 16px;
+  }
+  
+  .headerSection {
+    padding: 24px;
+    margin-bottom: 24px;
+    border-radius: 16px;
+  }
+  
+  .titleWrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .iconBadge {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .tabsContainer {
+    width: 100%;
+  }
+  
+  .tabsWrapper {
+    width: 100%;
+    justify-content: stretch;
+  }
+  
+  .tab {
+    flex: 1;
+    justify-content: center;
+    padding: 10px 16px;
+  }
+  
+  .emptyState {
+    padding: 48px 32px;
+    border-radius: 16px;
+  }
+  
+  .emptyIcon {
+    width: 96px;
+    height: 96px;
+  }
+  
+  .listHeader {
+    padding: 20px 24px;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  
+  .connectionsGrid {
+    padding: 20px 24px;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .invitationsContainer {
+    padding: 12px;
+  }
+  
+  .headerSection {
+    padding: 20px;
+    border-radius: 12px;
+  }
+  
+  .titleWrapper {
+    gap: 8px;
+  }
+  
+  .tab {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  
+  .emptyState {
+    padding: 40px 24px;
+    border-radius: 12px;
+  }
+  
+  .emptyIcon {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .emptyTitle {
+    font-size: 20px;
+  }
+  
+  .emptyDescription {
+    font-size: 14px;
+  }
+  
+  .connectionsGrid {
+    padding: 16px 20px;
+  }
+  
+  .invitationsList {
+    border-radius: 12px;
+  }
+}

@@ -1,0 +1,40 @@
+.separator {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0;
+  width: 100%;
+  position: relative;
+}
+
+.separator::before,
+.separator::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(59,130,246,0.10) 0%, rgba(139,92,246,0.15) 100%);
+  border-radius: 2px;
+}
+
+.separator > :not(:empty) {
+  padding: 0.25rem 1.25rem;
+  background: rgba(255,255,255,0.8);
+  color: #5e5e5e;
+  font-weight: 500;
+  font-size: 1rem;
+  border-radius: 2rem;
+  box-shadow: 0 1px 4px rgba(139,92,246,0.07);
+  letter-spacing: 0.03em;
+}
+
+@media (max-width: 480px) {
+  .separator {
+    gap: 0.5rem;
+    margin: 1.25rem 0;
+  }
+  .separator > :not(:empty) {
+    padding: 0.2rem 0.75rem;
+    font-size: 0.9rem;
+  }
+}

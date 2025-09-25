@@ -1,0 +1,442 @@
+.headerContainer {
+  margin-bottom: 32px;
+}
+
+.profileCard {
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  position: relative;
+}
+
+.coverSection {
+  position: relative;
+  height: 320px;
+}
+
+.coverWrapper {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+}
+
+.coverImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.coverOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.05) 50%,
+    rgba(0, 0, 0, 0.15) 100%
+  );
+}
+
+.coverEditButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Roboto", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  
+  &:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    color: #2563eb;
+  }
+}
+
+.profileImageSection {
+  position: absolute;
+  bottom: 0;
+  left: 32px;
+  transform: translateY(50%);
+}
+
+.profileImageButton,
+.profileImageContainer {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 6px solid #ffffff;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.profileImageButton {
+  background: transparent;
+  cursor: pointer;
+  
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.2);
+    
+    .profileImageOverlay {
+      opacity: 1;
+    }
+    
+    .profileImage {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.profileImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.profileImageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.profileContent {
+  padding: 100px 32px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+.profileInfo {
+  flex: 1;
+}
+
+.infoDisplay {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.nameSection {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.profileName {
+  font-size: 36px;
+  font-weight: 800;
+  color: #111827;
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Roboto", sans-serif;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+
+.editInfoButton {
+  padding: 8px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  
+  &:hover {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-color: #2563eb;
+    color: #2563eb;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+  }
+}
+
+.profileDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.jobTitle,
+.location {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  color: #6b7280;
+  font-weight: 500;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Roboto", sans-serif;
+  
+  svg {
+    color: #9ca3af;
+  }
+}
+
+.editingForm {
+  background: #f9fafb;
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid #e5e7eb;
+}
+
+.editHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.editTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Roboto", sans-serif;
+}
+
+.editActions {
+  display: flex;
+  gap: 8px;
+}
+
+.cancelButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Roboto", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+    border-color: rgba(239, 68, 68, 0.3);
+    color: #dc2626;
+  }
+}
+
+.saveButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Roboto", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+  
+  &:hover {
+    background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+  }
+}
+
+.formGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.nameInputs,
+.workInputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.connectionActions {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.connectButton {
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.25) !important;
+  
+  &:hover {
+    background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.35) !important;
+  }
+}
+
+.disconnectButton {
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%) !important;
+  color: #6b7280 !important;
+  border: 1px solid #e5e7eb !important;
+  
+  &:hover {
+    background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%) !important;
+    border-color: rgba(239, 68, 68, 0.3) !important;
+    color: #dc2626 !important;
+  }
+}
+
+.messageButton {
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%) !important;
+  color: #374151 !important;
+  border: 1px solid #e5e7eb !important;
+  
+  &:hover {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%) !important;
+    border-color: rgba(37, 99, 235, 0.3) !important;
+    color: #2563eb !important;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .coverSection {
+    height: 280px;
+  }
+  
+  .coverWrapper {
+    height: 200px;
+  }
+  
+  .coverEditButton {
+    top: 16px;
+    right: 16px;
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+  
+  .profileImageSection {
+    left: 24px;
+  }
+  
+  .profileImageButton,
+  .profileImageContainer {
+    width: 120px;
+    height: 120px;
+    border-width: 4px;
+  }
+  
+  .profileContent {
+    padding: 80px 24px 24px;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .profileName {
+    font-size: 28px;
+  }
+  
+  .connectionActions {
+    width: 100%;
+    
+    button {
+      flex: 1;
+    }
+  }
+  
+  .nameInputs,
+  .workInputs {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .profileCard {
+    border-radius: 20px;
+  }
+  
+  .coverSection {
+    height: 240px;
+  }
+  
+  .coverWrapper {
+    height: 160px;
+  }
+  
+  .profileImageSection {
+    left: 20px;
+  }
+  
+  .profileImageButton,
+  .profileImageContainer {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .profileContent {
+    padding: 70px 20px 20px;
+  }
+  
+  .profileName {
+    font-size: 24px;
+  }
+  
+  .editingForm {
+    padding: 20px;
+  }
+  
+  .editHeader {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  
+  .editActions {
+    width: 100%;
+    
+    button {
+      flex: 1;
+    }
+  }
+}

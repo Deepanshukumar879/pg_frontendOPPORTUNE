@@ -1,0 +1,465 @@
+// TimeAgo.module.scss - God-Level Professional Design
+.root {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(229, 231, 235, 0.6);
+  border-radius: 12px;
+  font-family: "Inter", "Roboto", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  animation: timeAgoSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(37, 99, 235, 0.3);
+    color: #374151;
+    transform: translateY(-1px);
+    box-shadow: 
+      0 4px 16px rgba(0, 0, 0, 0.1),
+      0 2px 8px rgba(37, 99, 235, 0.15);
+
+    .glowEffect {
+      opacity: 1;
+    }
+
+    .timeIcon {
+      color: #2563eb;
+      transform: scale(1.1);
+    }
+
+    .underline {
+      width: 100%;
+    }
+
+    .clickHint {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &:focus {
+    outline: 2px solid rgba(37, 99, 235, 0.4);
+    outline-offset: 2px;
+  }
+
+  &:active {
+    transform: translateY(0) scale(0.98);
+  }
+}
+
+@keyframes timeAgoSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+// Background glow effect
+.glowEffect {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #2563eb, #16a34a, #f97316, #2563eb);
+  background-size: 300% 300%;
+  border-radius: 14px;
+  opacity: 0;
+  animation: glowRotate 4s linear infinite;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+@keyframes glowRotate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+// Main content
+.content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 1;
+}
+
+// Time icon
+.timeIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: timeIconTick 2s ease-in-out infinite;
+}
+
+@keyframes timeIconTick {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(6deg); }
+  75% { transform: rotate(-6deg); }
+}
+
+// Time container
+.timeContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.timeText {
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  
+  .root:hover & {
+    color: #2563eb;
+  }
+}
+
+// Edited indicator
+.editedContainer {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding-left: 8px;
+  border-left: 1px solid rgba(229, 231, 235, 0.8);
+  animation: editedSlideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes editedSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.editedDot {
+  width: 6px;
+  height: 6px;
+  background: #f97316;
+  border-radius: 50%;
+  animation: editedPulse 2s ease-in-out infinite;
+}
+
+@keyframes editedPulse {
+  0%, 100% { 
+    opacity: 1; 
+    transform: scale(1); 
+  }
+  50% { 
+    opacity: 0.7; 
+    transform: scale(1.2); 
+  }
+}
+
+.editedText {
+  font-size: 12px;
+  color: #f97316;
+  font-weight: 600;
+}
+
+.editedIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f97316;
+  transition: all 0.3s ease;
+
+  .root:hover & {
+    transform: rotate(15deg) scale(1.1);
+  }
+}
+
+// Animated underline
+.underline {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, #2563eb, #16a34a);
+  border-radius: 1px;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+// Premium tooltip
+.tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  background: rgba(17, 24, 39, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(55, 65, 81, 0.8);
+  border-radius: 16px;
+  padding: 16px;
+  min-width: 280px;
+  max-width: 400px;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 8px 16px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  animation: tooltipSlideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+@keyframes tooltipSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-4px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-8px) scale(1);
+  }
+}
+
+.tooltipContent {
+  color: white;
+}
+
+.tooltipHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(75, 85, 99, 0.5);
+}
+
+.tooltipIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, #2563eb, #16a34a);
+  border-radius: 6px;
+  color: white;
+}
+
+.tooltipTitle {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #f9fafb;
+}
+
+.tooltipBody {
+  line-height: 1.5;
+}
+
+.fullDate {
+  font-family: "Inter", "Roboto", sans-serif;
+  font-size: 13px;
+  color: #d1d5db;
+  margin: 0 0 8px;
+  font-weight: 500;
+}
+
+.tooltipEdited {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #fbbf24;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(75, 85, 99, 0.3);
+
+  svg {
+    flex-shrink: 0;
+  }
+
+  span {
+    font-weight: 500;
+  }
+}
+
+.tooltipArrow {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid rgba(17, 24, 39, 0.95);
+}
+
+.tooltipGlow {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  background: linear-gradient(45deg, #2563eb, #16a34a, #f97316, #2563eb);
+  background-size: 300% 300%;
+  border-radius: 20px;
+  opacity: 0.2;
+  animation: glowRotate 6s linear infinite;
+  z-index: -1;
+}
+
+// Click hint
+.clickHint {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  font-size: 11px;
+  color: #9ca3af;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(229, 231, 235, 0.6);
+  white-space: nowrap;
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  z-index: 10;
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .root {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+
+  .timeIcon {
+    width: 12px;
+    height: 12px;
+
+    svg {
+      width: 12px;
+      height: 12px;
+    }
+  }
+
+  .content {
+    gap: 6px;
+  }
+
+  .editedContainer {
+    gap: 3px;
+    padding-left: 6px;
+  }
+
+  .editedText {
+    font-size: 11px;
+  }
+
+  .editedIcon svg {
+    width: 10px;
+    height: 10px;
+  }
+
+  .tooltip {
+    min-width: 240px;
+    padding: 12px;
+  }
+
+  .tooltipTitle {
+    font-size: 13px;
+  }
+
+  .fullDate {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .root {
+    padding: 3px 6px;
+    font-size: 11px;
+    border-radius: 8px;
+  }
+
+  .timeIcon svg {
+    width: 10px;
+    height: 10px;
+  }
+
+  .editedDot {
+    width: 4px;
+    height: 4px;
+  }
+
+  .tooltip {
+    min-width: 200px;
+    max-width: 280px;
+    padding: 10px;
+    font-size: 11px;
+  }
+}
+
+// Theme variations
+.root[data-theme="dark"] {
+  background: rgba(17, 24, 39, 0.9);
+  border-color: rgba(75, 85, 99, 0.6);
+  color: #d1d5db;
+
+  &:hover {
+    background: rgba(17, 24, 39, 0.95);
+    border-color: rgba(37, 99, 235, 0.4);
+    color: #f9fafb;
+  }
+}
+
+// Performance optimizations
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+// High contrast support
+@media (prefers-contrast: high) {
+  .root {
+    border: 2px solid #111827;
+    background: white;
+  }
+  
+  .timeText,
+  .editedText {
+    color: #111827;
+  }
+}
+
+// Focus improvements
+@media (prefers-reduced-motion: no-preference) {
+  .root:focus-visible {
+    animation: focusPulse 0.3s ease-in-out;
+  }
+}
+
+@keyframes focusPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}

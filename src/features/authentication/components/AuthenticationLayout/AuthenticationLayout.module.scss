@@ -1,0 +1,240 @@
+.root {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
+}
+
+.container {
+  max-width: 74rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Header Styles */
+.header {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #e2e8f0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.header .container {
+  padding-block: 1rem;
+}
+
+.logoLink {
+  display: block;
+  width: max-content;
+  text-decoration: none;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logoIcon {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.brandName {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1e293b;
+}
+
+/* Main Content */
+main.container {
+  display: grid;
+  align-items: center;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #1e293b;
+}
+
+/* Footer Styles */
+.footer {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid #e2e8f0;
+  font-size: 0.875rem;
+}
+
+.footerList {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  padding: 0;
+  list-style: none;
+}
+
+.brandSection {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-right: auto;
+}
+
+.footerLogoIcon {
+  width: 2rem;
+  height: 2rem;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+
+.brandText {
+  font-weight: 600;
+  color: #1e293b;
+  font-size: 1.125rem;
+}
+
+.copyright {
+  color: #64748b;
+  font-size: 0.875rem;
+}
+
+.footerLink {
+  color: #64748b;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.footerLink:hover {
+  color: #3b82f6;
+}
+
+.socialLinks {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-left: auto;
+}
+
+.socialLink {
+  width: 2rem;
+  height: 2rem;
+  background: #f1f5f9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.socialLink:hover {
+  background: #dbeafe;
+  color: #3b82f6;
+}
+
+.socialIcon {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .brandName {
+    font-size: 1.5rem;
+  }
+  
+  .footerList {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .brandSection {
+    margin-right: 0;
+  }
+  
+  .socialLinks {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .logoContainer {
+    gap: 0.5rem;
+  }
+  
+  .logoIcon {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+  }
+  
+  .brandName {
+    font-size: 1.25rem;
+  }
+  
+  .footerList {
+    text-align: center;
+  }
+}
+
+/* Hover Effects */
+.logoLink:hover .logoIcon {
+  transform: rotate(5deg);
+  transition: transform 0.2s ease;
+}
+
+.footerLink:hover {
+  transform: translateY(-1px);
+}
+
+.socialLink:hover {
+  transform: translateY(-2px);
+}
+
+/* Modern Card-like appearance for main content area */
+main.container > div {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  max-width: 28rem;
+  margin: 0 auto;
+}
+
+@media (max-width: 480px) {
+  main.container > div {
+    padding: 1.5rem;
+    margin: 0 1rem;
+  }
+}
+

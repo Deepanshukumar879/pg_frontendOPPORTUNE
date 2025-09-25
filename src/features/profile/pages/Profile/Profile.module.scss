@@ -1,0 +1,318 @@
+.loadingContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #f9fafb;
+}
+
+.loadingContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.loadingText {
+  font-size: 16px;
+  color: #6b7280;
+  font-weight: 500;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Roboto", sans-serif;
+}
+
+.profileContainer {
+  display: flex;
+  min-height: 100vh;
+  background: #f9fafb;
+  gap: 32px;
+  padding: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.mainContent {
+  flex: 1;
+  max-width: 800px;
+}
+
+.rightSidebar {
+  width: 320px;
+  flex-shrink: 0;
+}
+
+.sectionsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.experienceSection,
+.educationSection,
+.skillsSection {
+  width: 100%;
+}
+
+.sectionCard {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  
+  &:hover {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    transform: translateY(-1px);
+  }
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 32px 24px;
+  background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.sectionTitleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sectionIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  
+  .experienceSection & {
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  }
+  
+  .educationSection & {
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  }
+  
+  .skillsSection & {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  }
+}
+
+.sectionTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Roboto", sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.addButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  color: #374151;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Roboto", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  
+  &:hover {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border-color: rgba(37, 99, 235, 0.3);
+    color: #2563eb;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+  }
+}
+
+.comingSoonContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 64px 32px;
+}
+
+.comingSoonIcon {
+  width: 96px;
+  height: 96px;
+  background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  margin-bottom: 20px;
+  border: 2px solid #e5e7eb;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+.comingSoonTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 8px 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Roboto", sans-serif;
+}
+
+.comingSoonText {
+  font-size: 15px;
+  color: #6b7280;
+  line-height: 1.5;
+  margin: 0;
+  max-width: 300px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Roboto", sans-serif;
+}
+
+/* Animation for sections */
+.sectionCard {
+  animation: fadeInUp 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.experienceSection .sectionCard {
+  animation-delay: 0.1s;
+}
+
+.educationSection .sectionCard {
+  animation-delay: 0.2s;
+}
+
+.skillsSection .sectionCard {
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .profileContainer {
+    gap: 24px;
+  }
+  
+  .rightSidebar {
+    width: 280px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .profileContainer {
+    flex-direction: column;
+    gap: 24px;
+    padding: 20px;
+  }
+  
+  .rightSidebar {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .profileContainer {
+    padding: 16px;
+    gap: 20px;
+  }
+  
+  .sectionsGrid {
+    gap: 20px;
+  }
+  
+  .sectionHeader {
+    padding: 24px 24px 20px;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  
+  .sectionTitleWrapper {
+    gap: 10px;
+  }
+  
+  .sectionIcon {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .sectionTitle {
+    font-size: 20px;
+  }
+  
+  .comingSoonContent {
+    padding: 48px 24px;
+  }
+  
+  .comingSoonIcon {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .comingSoonTitle {
+    font-size: 18px;
+  }
+  
+  .comingSoonText {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profileContainer {
+    padding: 12px;
+  }
+  
+  .sectionCard {
+    border-radius: 16px;
+  }
+  
+  .sectionHeader {
+    padding: 20px 20px 16px;
+  }
+  
+  .sectionTitle {
+    font-size: 18px;
+  }
+  
+  .comingSoonContent {
+    padding: 40px 20px;
+  }
+  
+  .comingSoonIcon {
+    width: 72px;
+    height: 72px;
+  }
+  
+  .comingSoonTitle {
+    font-size: 16px;
+  }
+}
